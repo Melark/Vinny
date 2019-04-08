@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Vinny.Interfaces;
+using Xamarin.Forms;
 using ZXing.Mobile;
 
 namespace Vinny.Services
@@ -8,9 +10,16 @@ namespace Vinny.Services
     {
         public async Task<string> ScanBarcode()
         {
-            var scanner = new MobileBarcodeScanner();
-            var result = await scanner.Scan();
-            return result?.Text ?? string.Empty;
+            try
+            {
+                var scanner = new MobileBarcodeScanner();
+                var result = await scanner.Scan();
+                return result?.Text ?? string.Empty;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }
