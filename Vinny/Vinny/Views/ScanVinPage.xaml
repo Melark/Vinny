@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:Vinny.ViewModels"
+             xmlns:customcomponents="clr-namespace:Vinny.Views.CustomComponents"
+             x:Class="Vinny.Views.ScanVinPage"
+             BackgroundColor="LightGray">
+    
+    <ContentPage.BindingContext>
+        <ViewModels:ScanVinViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        
+            <StackLayout>
+                <ScrollView VerticalOptions="StartAndExpand">
+                <StackLayout Padding="10,5,10,5">
+                    <Label
+                        Margin="0,10"
+                        Text="License Disk"
+                        TextColor="Black"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        />
+                    <customcomponents:LabelledEntry LabelText="Registration Number" EntryText="{Binding VehicleRegistrationNumber}"/>
+                    <customcomponents:LabelledEntry LabelText="Vin Number" EntryText="{Binding VinNumber}"/>
+                    <customcomponents:LabelledEntry LabelText="Engine Number" EntryText="{Binding EngineNumber}"/>
+                    <customcomponents:LabelledEntry LabelText="License Disk Number" EntryText="{Binding LicenseDiskNumber}"/>
+                    <customcomponents:LabelledEntry LabelText="License Number" EntryText="{Binding LicenseNumber}"/>
+                    <customcomponents:LabelledEntry LabelText="Vehicle Make" EntryText="{Binding VehicleMake}"/>
+                    <customcomponents:LabelledEntry LabelText="Vehicle Model" EntryText="{Binding VehicleModel}"/>
+                    <customcomponents:LabelledEntry LabelText="Description" EntryText="{Binding Description}"/>
+                    <customcomponents:LabelledEntry LabelText="Vehicle Color" EntryText="{Binding VehicleColor}"/>
+                    <customcomponents:LabelledEntry LabelText="License Expiry Date" EntryText="{Binding LicenseExpiryDate, StringFormat='{0:yyyy-MM-dd}'}"/>
+                </StackLayout>
+                </ScrollView>
+            <Button
+                Padding="10,10,10,10"
+                VerticalOptions="End"
+                    BackgroundColor="CadetBlue"
+                    TextColor="WhiteSmoke"
+                    Command="{Binding ScanBarcodeCommand}"
+                    Text="Scan"/>
+            </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

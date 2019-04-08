@@ -1,4 +1,5 @@
 ﻿using System;
+using Vinny.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +12,7 @@ namespace Vinny
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ScanVinPage();
         }
 
         protected override void OnStart()
